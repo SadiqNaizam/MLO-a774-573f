@@ -1,14 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '../components/layout/MainAppLayout';
+import FunnelStatsGrid from '../components/Dashboard/FunnelStatsGrid';
+import StatChartSection from '../components/Dashboard/StatChartSection';
+import ReasonsGrid from '../components/Dashboard/ReasonsGrid';
 
-const Index = () => {
+/**
+ * LeadsDashboardPage Component
+ *
+ * This page serves as the main view for the Leads Dashboard Overview.
+ * It utilizes the DashboardLayout (implemented as MainAppLayout) to structure the page
+ * with a sidebar, header, and main content area.
+ * The main content area is populated by specific dashboard widgets:
+ * - FunnelStatsGrid: Displays funnel statistics and sources chart.
+ * - StatChartSection: Shows leads tracking line chart and related stats.
+ * - ReasonsGrid: Presents reasons for lost leads and other miscellaneous data.
+ *
+ * The pageTitle prop passed to MainAppLayout determines the title displayed in the HeaderBar.
+ * For this Leads Dashboard Overview, the title is set to "Leads Dashboard".
+ */
+const LeadsDashboardPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <MainAppLayout pageTitle="Leads Dashboard">
+      {/* 
+        The main content area of the dashboard is composed of several sections.
+        These components are self-contained and manage their own data and presentation.
+        They are arranged vertically with spacing handled by MainAppLayout's flex container.
+      */}
+      <FunnelStatsGrid />
+      <StatChartSection />
+      <ReasonsGrid />
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default LeadsDashboardPage;

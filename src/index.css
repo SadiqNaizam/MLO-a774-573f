@@ -1,57 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 96.1%; /* PRD: #F5F5F5 */
+    --foreground: 210 10.3% 14.9%; /* PRD: #212529 (primaryText) */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* PRD: #FFFFFF (surface) */
+    --card-foreground: 210 10.3% 14.9%; /* PRD: #212529 (primaryText on surface) */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* PRD: #FFFFFF (surface) */
+    --popover-foreground: 210 10.3% 14.9%; /* PRD: #212529 (primaryText on surface) */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217.3 98% 51.8%; /* PRD: #0D6EFD (highlight) */
+    --primary-foreground: 210 40% 98%; /* Existing, suitable for new primary */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 40% 96.1%; /* Existing light gray, PRD provides no direct alternative for this role */
+    --secondary-foreground: 205.7 14% 42.9%; /* PRD: #606F7B (secondaryText) */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96.1%; /* Existing light gray, PRD provides no direct alternative */
+    --muted-foreground: 205.7 14% 42.9%; /* PRD: #606F7B (secondaryText) */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 217.3 98% 51.8%; /* PRD: #0D6EFD (highlight, used as general accent) */
+    --accent-foreground: 210 40% 98%; /* Existing, suitable for new accent */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 5.4 90% 64.1%; /* PRD: #F65F51 (accentRed) */
+    --destructive-foreground: 210 40% 98%; /* Existing, suitable */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90.6%; /* PRD: #E7E7E7 */
+    --input: 0 0% 90.6%; /* PRD: #E7E7E7 (assumed same as border) */
+    --ring: 217.3 98% 51.8%; /* PRD: #0D6EFD (highlight, for focus rings) */
 
-    --radius: 0.5rem;
+    --radius: 0.5rem; /* PRD: effects.borderRadius (buttons: rounded-lg -> 0.5rem) */
 
-    --sidebar-background: 0 0% 98%;
+    /* PRD Specific Accent Colors */
+    --accent-blue-val: 164.7 71% 45.7%; /* PRD: #20C997 */
+    --accent-yellow-val: 36.9 90% 51.2%; /* PRD: #F39C12 */
+    --accent-green-val: 158.3 83% 39.0%; /* PRD: #10B981 */
+    --accent-purple-val: 265.8 50% 50.8%; /* PRD: #6F42C1 */
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Sidebar Variables */
+    --sidebar-background: 0 0% 100%; /* PRD: #FFFFFF (sidebar) */
+    --sidebar-foreground: 210 10.3% 14.9%; /* Mapped to primaryText */
+    --sidebar-primary: 217.3 98% 51.8%; /* Mapped to highlight/primary */
+    --sidebar-primary-foreground: 210 40% 98%; /* Mapped to primary-foreground */
+    --sidebar-accent: 240 4.8% 95.9%; /* Existing light gray for hover, kept */
+    --sidebar-accent-foreground: 210 10.3% 14.9%; /* Mapped to primaryText for hover */
+    --sidebar-border: 0 0% 90.6%; /* Mapped to main border */
+    --sidebar-ring: 217.3 98% 51.8%; /* Mapped to main ring/highlight */
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Typography */
+    --font-sans: "Inter", sans-serif; /* PRD: typography.primaryFont */
   }
 
   .dark {
+    /* Dark mode values are preserved from original as PRD does not specify them */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -79,6 +85,8 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    /* Dark mode sidebar variables preserved */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -87,6 +95,9 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Dark mode font variable should typically match light mode */
+    /* --font-sans: "Inter", sans-serif; */ /* This is inherited or can be set if specific dark font is needed */
   }
 }
 
@@ -97,5 +108,8 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
